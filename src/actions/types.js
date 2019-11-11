@@ -16,3 +16,14 @@ export const EDIT_PROFILE_FAIL = 'EDIT_PROFILE_FAIL';
 // Manage Posts
 export const EMPTY_POST_LIST = 'EMPTY_POST_LIST';
 export const FILL_POST_LIST = 'FILL_POST_LIST';
+export const SELECT_POST_PROFILE = 'SELECT_POST_PROFILE';
+export const DELETE_POST = 'DELETE_POST';
+export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
+export const SELECT_EXPLORE_POST = 'SELECT_EXPLORE_POST';
+
+// Edit Post Details
+export const EDIT_POST = 'EDIT_POST';
+export const CAPTION_POST_CHANGED = 'CAPTION_POST_CHANGED';
+export const SAVE_POST = 'SAVE_POST';
+export const EDIT_POST_SUCCESS  = 'EDIT_POST_SUCCESS'; 
+export const EDIT_POST_FAIL  = 'EDIT_POST_FAIL'; 

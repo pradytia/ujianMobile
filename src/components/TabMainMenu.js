@@ -5,10 +5,13 @@ import { Icon } from 'react-native-elements';
 import Home from './Home';
 import StackProfile from './StackProfile';
 import PostPhoto from './PostPhoto';
+import ExploreStack from './ExploreStack';
 
 export default createAppContainer(createBottomTabNavigator(
+  //routeconfig
   {
-    Home: Home,
+    Home: Home, // sama xeperti screen : home => karena yang dibuthkan hanya screen otomatis lgsg ngebaca sebagai screen
+    Explore : ExploreStack,
     PostPhoto: PostPhoto,
     Profile: StackProfile  
   },
@@ -24,6 +27,8 @@ export default createAppContainer(createBottomTabNavigator(
           iconName = `account-box`;
         } else if(routeName === 'PostPhoto') {
           iconName = `add-box`;
+        } else if( routeName === 'Explore') {
+          iconName = 'search'
         }
         // You can return any component that you like here!
         return <Icon 

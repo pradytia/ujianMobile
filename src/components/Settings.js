@@ -54,7 +54,7 @@ class Settings extends Component {
             </View>
         )
     }
-}
+} 
 
 const mapStateToProps = ({ auth }) => {
     return {

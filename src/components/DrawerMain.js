@@ -7,16 +7,18 @@ import TabMainMenu from './TabMainMenu';
 
 const DrawerNavigator = createAppContainer(createDrawerNavigator(
     {
-        MainMenu: {
+        //sebuah route . menentukan route dan pindah kemana
+        MainMenu: { 
             screen: TabMainMenu,
             navigationOptions: {
-                drawerLabel: () => null
+                drawerLabel: () => null // untuk menghilangkan tulisan main menu di header
             }
         },
+        // sebuah route
         Settings: {
-            screen: Settings,
+            screen: Settings, //otomatis sudah kirim props stack navigais dari drawer untuk di akses di class component settings , semua props yang dimiliki drawer akan dikirim ke anak/childnya
             navigationOptions: {
-                drawerLabel: 'Settings',
+                drawerLabel: 'Settings', //hanya sebuah tulisan di header settings , kalo g dikasih defaultnya akan dikasih nama routenya yaitu properti settings
                 drawerIcon: ({ tintColor }) => (
                     <Icon name={'cog'} type='font-awesome' size={25} color={tintColor} />
                 )

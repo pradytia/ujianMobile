@@ -3,7 +3,7 @@ import { View, ScrollView, Image } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { Card, CardItem, Thumbnail, Text, Button, Left, Body, Right } from 'native-base';
-import { getListPost } from '../actions';
+import { getListPost } from '../actions'; 
 
 class Home extends Component {
     componentDidMount() {
