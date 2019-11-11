@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View,Text, Image, TouchableWithoutFeedback,ActivityIndicator} from 'react-native';
+import {View,Text, Image, TouchableWithoutFeedback,ActivityIndicator, ScrollView} from 'react-native';
 import { Header,  Input,Icon } from 'react-native-elements';
 import { Card, CardItem, Thumbnail, Button, Left, Body, Right } from 'native-base';
 import {connect} from 'react-redux';
@@ -14,7 +14,7 @@ class EditPostDetail extends Component {
     componentDidUpdate() {
         if(this.props.captionEdit === ''){
             this.props.navigation.navigate('Profile',{
-                onGoBack: () => this.refresh(),
+                onGoBack: () => this.props.selectedProfilePostRefresh(this.props.id),
               });
         }
     }
@@ -23,6 +23,7 @@ class EditPostDetail extends Component {
     render() {
         return (
             <View>
+            <ScrollView>
             <Header
                placement="left"
                leftComponent={{ 
@@ -52,7 +53,7 @@ class EditPostDetail extends Component {
                }}
            />
           
-          <View style={{ paddingTop: 15 }}>
+        
           <Card>
                <CardItem>
                    <Left style={{ flex: 3 }}>
@@ -62,47 +63,19 @@ class EditPostDetail extends Component {
                            <Text note>Instagrin User</Text>
                        </Body>
                    </Left>
-                   <Right>
-                       <Icon
-                           name='more-vert'
-                           size={30}
-                           onPress={() => this.setState({ isVisible: true  })}
-                       />
-                   </Right>
                </CardItem>
                <CardItem cardBody>
                    <Image source={{uri: this.props.imageURL }} style={{height: 350, width: null, flex: 1}}/>
-               </CardItem>
-                      <Text style={{ 
-                   paddingLeft: 12,
-                   opacity: 0.3
-               }}>
-                   Caption
-               </Text>
-               <Input
-                   placeholder='Caption'
-                   value={this.props.captionEdit}
-                   onChangeText={this.props.inputEditCaptionChange}
-               />
-               <CardItem>
-                   <Left>
-                       <Input value={this.props.captionEdit}
-                       onChangeText={this.props.inputEditCaptionChange}/>
-                   </Left>
-               </CardItem>
+               </CardItem>     
            </Card>
-               <Text style={{ 
-                   paddingLeft: 12,
-                   opacity: 0.3
-               }}>
-                   Caption
-               </Text>
+           <View>
                <Input
                    placeholder='Caption'
                    value={this.props.captionEdit}
                    onChangeText={this.props.inputEditCaptionChange}
                />
            </View>
+           </ScrollView>
        </View>
         );
     }
@@ -112,6 +85,7 @@ const mapStateToProps=({editPost,post})=>{
     return{
         ...editPost,
         ...post.selectedPostDetailProfile,
+        ...post
     }
 }
 
